@@ -2,7 +2,7 @@
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$dbname = "linking";
+	$dbname = "findMyWorker";
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -11,7 +11,7 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 	$skill_table = strtolower(trim($_GET['skill']));
-	$sql = "SELECT fullName, DOB, gender, city, rating FROM workers JOIN $skill_table ON workers.UID=$skill_table.UID";
+	$sql = "SELECT fullName, city, skills, rating FROM workers JOIN `$skill_table` ON workers.UID=`$skill_table`.UID";
 	$result = mysqli_query($conn, $sql);
 	mysqli_close($conn);
 	$names = array();

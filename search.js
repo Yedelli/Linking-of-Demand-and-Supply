@@ -11,13 +11,13 @@ $(document).ready(function () {
 	    if($('#skills').find('option').filter(function(){
 	        return this.value.toUpperCase() === val.toUpperCase();        
 	    }).length) {
-	        $.getJSON("get/employees.php",
+	        $.getJSON("get/workers.php",
 	        	{
 	        		skill: val.toLowerCase()
 	        	},
-	        	function (employees) {
-	        	for (var i = employees.length - 1; i >= 0; i--) {
-	        		alert(employees[i].fullName);
+	        	function (workers) {
+	        	for (var i = workers.length - 1; i >= 0; i--) {
+	        		alert(workers[i].fullName);
 	        	}
 	        });
 	    }

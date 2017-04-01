@@ -1,6 +1,6 @@
 <?php
 
-	$non_skill_tables = array("employee", "employers");
+	$non_skill_tables = array("workers", "employers");
 
 	$servername = "localhost";
 	$username = "root";

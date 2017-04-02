@@ -27,6 +27,16 @@ $(document).ready(function () {
 		}
 	});
 
+	// If the user-entered city matches with one of the cities or the input is empty, filter the list of workers.
+	$("#cityInput").on('input', function () {
+		var val = this.value;
+		if(val === '' || $('#cities').find('option').filter(function () {
+			return this.value.toUpperCase() === val.toUpperCase();        
+		}).length) {
+			filterByCity();
+		}
+	});
+
 	// If the user presses enter, take appropriate action.
 	$("#skillInput").keypress(function (key) {
 		if (key.which === 13) {
@@ -71,6 +81,7 @@ $(document).ready(function () {
 				listOfWorkers += '</ul>';
 				$('#progressBar').remove();
 				$('#resultCell').html(listOfWorkers);
+				filterByCity();
 		}).fail(function () { // If the connection fails
 			$('#progressBar').remove();
 			$(errorDialog).find('.errorMsg').html('Something went wrong while connecting to the server. Please try again.');
@@ -87,12 +98,12 @@ function workerToListItem(worker) {
 		<span class="mdl-list__item-primary-content">\
 			<i class="material-icons mdl-list__item-avatar">person</i>\
 			<span>' + worker.fullName + '</span>\
-			<span class="mdl-list__item-text-body">\
+			<span class="mdl-list__item-text-body" data-city="' + worker.city + '">\
 			Skills: '+ worker.skills +
 			'<br/>City: ' + worker.city +
 			'</span>\
 		</span>\
-			<span class="mdl-list__item-secondary-content">'
+		<span class="mdl-list__item-secondary-content">'
 			+ worker.rating + '/5\
 			<i class="material-icons">star</i>\
 		</span>\
@@ -104,4 +115,23 @@ function sortByRating(w1, w2) {
 	var rating1 = Number(w1.rating);
 	var rating2 = Number(w2.rating);
 	return ((rating1 < rating2) ? 1 : ((rating2 < rating1) ? -1 : 0));
+}
+
+function filterByCity() {
+	if ($('#cityInput').val() === '') {
+		$("#resultList").find('li').each(function (index, option) {
+			$(option).show();
+		});
+		return;
+	}
+
+	var city = $('#cityInput').val();
+
+	$("#resultList").find('li').each(function (index, option) {
+		if ($(option).find('.mdl-list__item-text-body').data('city').toUpperCase() === city.toUpperCase()) {
+			$(option).show();
+		} else {
+			$(option).hide();
+		}
+	});
 }

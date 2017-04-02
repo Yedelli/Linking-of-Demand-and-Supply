@@ -2,13 +2,13 @@
 
 	$non_skill_tables = array("workers", "employers");
 
-	$servername = "localhost";
-	$username = "root";
+	$server_name = "localhost";
+	$user_name = "root";
 	$password = "";
-	$dbname = "findMyWorker";
+	$db_name = "findMyWorker";
 
 	// Create connection
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	$conn = mysqli_connect($server_name, $user_name, $password, $db_name);
 	// Check connection
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
@@ -22,13 +22,13 @@
 	while($row = mysqli_fetch_assoc($result)) {
 		$found = FALSE;
 		foreach ($non_skill_tables as $table_name) {
-			if (preg_match("/\s*".trim($table_name)."\s*/i", $row["Tables_in_".$dbname]) == 1) {
+			if (preg_match("/\s*".trim($table_name)."\s*/i", $row["Tables_in_".$db_name]) == 1) {
 				$found = TRUE;
 				break;
 			}
 		}
 		if ($found == FALSE) {
-			array_push($skill_list, strtoupper($row["Tables_in_".$dbname]));
+			array_push($skill_list, strtoupper($row["Tables_in_".$db_name]));
 		}
 	}
 	print_r(json_encode($skill_list));

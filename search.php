@@ -1,3 +1,6 @@
+<?php
+include_once './all_cities.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +9,11 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-orange.min.css">
 	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+	<!-- getmdl-select -->
+	<link rel="stylesheet" type="text/css" href="getmdl-select/getmdl-select.css">
+	<script type="text/javascript" src="getmdl-select/getmdl-select.js"></script>
+
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -34,7 +42,6 @@
 
 				<!-- Search Box -->
 				<div class="mdl-grid">
-					<div class="mdl-layout-spacer"></div>
 					<div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;">
 							<input class="mdl-textfield__input" list="skills" id="skillInput" autofocus autocomplete>
@@ -42,7 +49,19 @@
 							<label class="mdl-textfield__label" for="skillInput">What skill are you looking for?</label>
 						</div>
 					</div>
-					<div class="mdl-layout-spacer"></div>
+					<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;">
+							<input class="mdl-textfield__input" list="cities" id="cityInput" autofocus autocomplete>
+							<datalist id="cities">
+							<?php
+								foreach ($all_cities as $city) {
+									echo "<option value='$city'></option>";
+								}
+							?>
+							</datalist>
+							<label class="mdl-textfield__label" for="cityInput">City</label>
+						</div>
+					</div>
 				</div>
 
 				<!-- Search Results -->

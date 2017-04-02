@@ -37,7 +37,7 @@
 					<div class="mdl-layout-spacer"></div>
 					<div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;">
-							<input class="mdl-textfield__input" list="skills" id="skillInput">
+							<input class="mdl-textfield__input" list="skills" id="skillInput" autofocus autocomplete>
 							<datalist id="skills"></datalist>
 							<label class="mdl-textfield__label" for="skillInput">What skill are you looking for?</label>
 						</div>
@@ -48,18 +48,28 @@
 				<!-- Search Results -->
 				<div class="mdl-grid">
 					<div class="mdl-layout-spacer"></div>
-					<div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-						<ul id="resultList" class="mdl-list" style="width: 100%"></ul>
-					</div>
+					<div id="resultCell" class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone"></div>
 					<div class="mdl-layout-spacer"></div>
 				</div>
 			</div>
 		</main>
 	</div>
+
+	<!-- Dialog polyfills -->
+	<link rel="stylesheet" type="text/css" href="./dialog-polyfill/dialog-polyfill.css">
+	<script type="text/javascript" src="dialog-polyfill/dialog-polyfill.js"></script>
 	
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 	<script type="text/javascript" src="search.js"></script>
+	<dialog id="connectionError" class="mdl-dialog">
+		<div class="mdl-dialog__content">
+			<p class="errorMsg"></p>
+		</div>
+		<div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+			<button type="button" class="mdl-button close">OK</button>
+		</div>
+	</dialog>
 </body>
 </html>

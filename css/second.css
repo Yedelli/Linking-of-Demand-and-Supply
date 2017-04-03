@@ -1,0 +1,48 @@
+
+	.container {margin-top: 7%;}
+	#text {
+		margin-top: 5%;
+	}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 17px;
+  right: 0;
+  height: 100%;
+  width: 89%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+  border-radius:50%;
+}
+
+.col-md-3:hover .overlay {
+  opacity: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.text {
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+#logout {
+	margin-top:8% !important;
+
+}
+#logout1 {
+	margin:-20% !important;;
+
+}

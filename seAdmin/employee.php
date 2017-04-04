@@ -76,13 +76,13 @@
 											<?php
 											
 												$query= mysql_query("SELECT uid,GROUP_CONCAT(skill) as skill, GROUP_CONCAT(experience) as experience, GROUP_CONCAT(rating) as rating FROM skill WHERE uid= '$id' GROUP BY uid" ) or die (mysql_error());
-												while ($row= mysql_fetch_array ($query) ){
-													$id1=$row['uid'];		
+												while ($row1= mysql_fetch_array ($query) ){
+													$id1=$row1['uid'];		
 											
 											?>
-											<td><?php echo $row ['skill']; ?></td>
-											<td><?php echo $row ['experience']; ?></td>
-											<td><?php echo $row ['rating']; ?></td>
+											<td><?php echo $row1 ['skill']; ?></td>
+											<td><?php echo $row1 ['experience']; ?></td>
+											<td><?php echo $row1 ['rating']; ?></td>
 												<?php } ;?>
 											
 											<td><a href="form_edit.php<?php echo '?userid='.$id; ?>" data-toggle="modal" class="btn btn-info">Edit</a>
@@ -108,9 +108,27 @@
 														</div>				
 													</div>
 												</div>
-											</div>											
-									</tbody>																										
+											</div>	
+
+											<!-- Modal Bigger Image -->
+											<div id="<?php  echo $id;?>" class="modal fade" role="dialog" >
+												<div class="modal-header">	
+													<h3 id="myModalLabel"><b><?php echo $row['name']; ?></b></h3>
+												</div>
+												<div class="modal-body">
+													<?php if($row['image'] != ""): ?>
+														<img src="upload/<?php echo $row['image']; ?>" style="width:390px; border-radius:9px; border:5px solid #d0d0d0; margin-left: 33.33%; height:387px;">
+													<?php else: ?>
+														<img src="upload/default.png" style="width:390px; border-radius:9px; border:5px solid #d0d0d0; margin-left:  33.33%; height:387px;">
+													<?php endif; ?>
+												</div>
+												<div class="modal-footer">
+													<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+												</div>
+											</div>
+											
 										<?php  } ?>
+									</tbody>
 								</table>		
 							</div>							
 						</div>

@@ -73,7 +73,7 @@ $count_employer = $row1[0];
                                     <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo "$count_employee"; ?></div>
+                                    <div class="huge"><?php echo "$count_employer"; ?></div>
                                     <div>No. of Employers</div>
                                 </div>
                             </div>

@@ -17,7 +17,7 @@ $count_employer = $row1[0];
         <div id="sidebar-wrapper">
             <ul id="list" class="sidebar-nav">                               
                 <li>
-                    <a href="index.php" class="active"><span class="glyphicon glyphicon-dashboard"></span> DASHBOARD</a>
+                    <a href="dashboard.php" class="active"><span class="glyphicon glyphicon-dashboard"></span> DASHBOARD</a>
                 </li>
                 <li>
                     <a href="employee.php"><span class="glyphicon glyphicon-user"></span> EMPLOYEE</a>

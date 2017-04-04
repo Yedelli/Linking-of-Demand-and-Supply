@@ -30,14 +30,14 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-menu">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="home.php">Linking Demand and Supply</a>
+                <a class="navbar-brand page-scroll" href="dashboard.php">Linking Demand and Supply</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="collapse-menu">
                 <ul class="nav navbar-nav navbar-right">                    
 					<li>
-                        <a class="page-scroll" href="#">Logout</a>
+                        <a class="page-scroll" href="logout.php">Logout</a>
                     </li>                    					
                 </ul>
             </div>

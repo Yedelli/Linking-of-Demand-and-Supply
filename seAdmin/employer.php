@@ -8,7 +8,7 @@
         <div id="sidebar-wrapper">
             <ul id="list" class="sidebar-nav">                               
                 <li>
-                    <a href="index.php"><span class="glyphicon glyphicon-dashboard"></span> DASHBOARD</a>
+                    <a href="dashboard.php"><span class="glyphicon glyphicon-dashboard"></span> DASHBOARD</a>
                 </li>
                 <li>
                     <a href="employee.php"><span class="glyphicon glyphicon-user"></span> EMPLOYEE</a>

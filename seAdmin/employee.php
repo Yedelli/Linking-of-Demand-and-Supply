@@ -44,7 +44,8 @@
 											<th>Gender</th>
 											<th>Age</th>        
 											<th>Languages</th>
-											<th>Skills and Experience</th>
+											<th>Skills</th>
+											<th>Experience</th>
 											<th>Rating</th>
 											<th>Action</th>
 										</tr>
@@ -66,8 +67,18 @@
 											<td><?php echo $row ['gender']; ?></td>
 											<td><?php echo $row ['age']; ?></td>        
 											<td><?php echo $row ['Languages']; ?></td>
-											<td>Skills and Experience</td>
-											<td>Rating</td>
+											<?php
+											
+												$query= mysql_query("SELECT uid,GROUP_CONCAT(skill) as skill, GROUP_CONCAT(experience) as experience, GROUP_CONCAT(rating) as rating FROM skill WHERE uid= '$id' GROUP BY uid" ) or die (mysql_error());
+												while ($row= mysql_fetch_array ($query) ){
+													$id=$row['uid'];		
+											
+											?>
+											<td><?php echo $row ['skill']; ?></td>
+											<td><?php echo $row ['experience']; ?></td>
+											<td><?php echo $row ['rating']; ?></td>
+												<?php } ;?>
+											
 											<td><a href="form_edit.php<?php echo '?userid='.$id; ?>" data-toggle="modal" class="btn btn-info">Edit</a>
 												<a href="#delete<?php echo $id;?>" data-toggle="modal"  class="btn btn-danger" >Delete </a>			
 											</td>																					

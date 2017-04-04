@@ -4,7 +4,21 @@
 <html lang="en">
 <body>
 	
-
+	 <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul id="list" class="sidebar-nav">                               
+                <li>
+                    <a href="index.php"><span class="glyphicon glyphicon-dashboard"></span> DASHBOARD</a>
+                </li>
+                <li>
+                    <a href="employee.php"><span class="glyphicon glyphicon-user"></span> EMPLOYEE</a>
+                </li>
+                <li>
+                    <a href="employer.php" class="active"><span class="glyphicon glyphicon-user"></span> EMPLOYER</a>
+                </li>                              
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
@@ -17,25 +31,23 @@
 								<table class="table table-bordered">
 									<thead>
 										<tr>
-											<th>Id</th>
-											<th>Paid by</th>
-											<th>Amount</th>
-											<th>Time</th>
-											<th>Final amount</th>        
+											<th>Name</th>
+											<th>Email Id</th>
+											<th>Contact No</th>
+											<th>Aadhar Card No</th>											       
 										</tr>
 									</thead>
 									<tbody>
 										<?php
-											$result= mysql_query("SELECT * FROM `canteen_cash`" ) or die (mysql_error());
+											$result= mysql_query("SELECT * FROM employer" ) or die (mysql_error());
 											while ($row= mysql_fetch_array ($result) ){
-											$id=$row['id'];		
+													
 										?>
 										<tr>
-											<td><?php echo $row ['id']; ?></td>
-											<td><?php echo $row ['paid_by']; ?></td>
-											<td><?php echo $row ['amount']; ?></td>
-											<td><?php echo $row ['time']; ?></td>
-											<td><?php echo $row ['final_amount']; ?></td>     
+											<td><?php echo $row ['name']; ?></td>
+											<td><?php echo $row ['email']; ?></td>
+											<td><?php echo $row ['contactNo']; ?></td>
+											<td><?php echo $row ['aadharNo']; ?></td>											    
 										</tr>
 										<?php } ?>  
 									</tbody>

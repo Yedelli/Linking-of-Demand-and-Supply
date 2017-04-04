@@ -21,8 +21,11 @@
 	 <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	
+	<!-- Header and Footer -->
+	<link href="css/header_footer.css" rel="stylesheet">
 	
-	<link href="css/sb-admin-2.css" rel="stylesheet">
+	<!-- Dashboard Panel -->
+	<link href="css/panel.css" rel="stylesheet">
   
 </head>
 

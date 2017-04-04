@@ -5,7 +5,7 @@
 <!-- Header -->
 	<div id="wrapper">
 		<div class="header">	
-			<nav class="navbar navbar-default navbar-fixed-top">
+			<!--<nav class="navbar navbar-default navbar-fixed-top">
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -22,23 +22,32 @@
 						</ul>
 					</div>
 				</div>
-			</nav>
-		</div>
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul id="list" class="sidebar-nav">                               
-                <li>
-                    <a href="index.php" class="active"><span class="glyphicon glyphicon-dashboard"></span> DASHBOARD</a>
-                </li>
-                <li>
-                    <a href="employee.php"><span class="glyphicon glyphicon-user"></span> EMPLOYEE</a>
-                </li>
-                <li>
-                    <a href="employer.php"><span class="glyphicon glyphicon-user"></span> EMPLOYER</a>
-                </li>                              
-            </ul>
+			</nav>-->
+			<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-menu">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="home.php">Linking Demand and Supply</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="collapse-menu">
+                <ul class="nav navbar-nav navbar-right">                    
+					<li>
+                        <a class="page-scroll" href="#">Logout</a>
+                    </li>                    					
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <!-- /#sidebar-wrapper -->
+        <!-- /.container-fluid -->
+    </nav>
+	
+		</div>
+       
 		
 		
 		

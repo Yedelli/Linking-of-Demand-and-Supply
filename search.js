@@ -1,12 +1,4 @@
 $(document).ready(function () {
-	// Generic error dialog which can be reused with custom error msg.
-	var errorDialog = document.getElementById('connectionError');
-	if (! errorDialog.showModal) {
-		dialogPolyfill.registerDialog(errorDialog);
-	}
-	$('.close').click(function () {
-		errorDialog.close();
-	});
 
 	// Get all types of skills from the server and fill the datalist options.
 	$.getJSON("get/skill_list.php", function (list) {
@@ -17,17 +9,17 @@ $(document).ready(function () {
 		$('#skills').html(options);
 	});
 
-	// If the user input matches with one of the skills, get the list of workers with matching skill.
+	// If the user input matches with one of the skills, get the list of employees with matching skill.
 	$("#skillInput").on('input', function () {
 		var val = this.value;
 		if($('#skills').find('option').filter(function () {
 			return this.value.toUpperCase() === val.toUpperCase();        
 		}).length) {
-			getWorkersWithSkill(val);
+			getEmployeesWithSkill(val);
 		}
 	});
 
-	// If the user-entered city matches with one of the cities or the input is empty, filter the list of workers.
+	// If the user-entered city matches with one of the cities or the input is empty, filter the list of employees.
 	$("#cityInput").on('input', function () {
 		var val = this.value;
 		if(val === '' || $('#cities').find('option').filter(function () {
@@ -44,71 +36,82 @@ $(document).ready(function () {
 			if(!$('#skills').find('option').filter(function () {
 				return this.value.toUpperCase() === val.toUpperCase();        
 			}).length) {
-				$(errorDialog).find('.errorMsg').html('Please select an item from the drop-down');
-				errorDialog.showModal();
+				$('#errorMsg').html('Please select an item from the drop-down');
+				$('#errorModal').modal('show');
 			}
 		}
 	});
 
+	// If the user clicks the search button, take appropriate action.
+	$("#serachBtn").on('click', function () {
+		var val = $("#skillInput").val();
+		if(!$('#skills').find('option').filter(function () {
+			return this.value.toUpperCase() === val.toUpperCase();        
+		}).length) {
+			$('#errorMsg').html('Please select an item from the drop-down');
+			$('#errorModal').modal('show');
+		}
+	});
 
-	// Gets the list of all workers with matching skill and displays the result.
-	function getWorkersWithSkill(skill) {
+
+	// Gets the list of all employees with matching skill and displays the result.
+	function getEmployeesWithSkill(skill) {
 		// Show a progress bar
-		var progressBar = document.createElement('div');
-		progressBar.id = 'progressBar';
-		progressBar.className = 'mdl-progress mdl-js-progress mdl-progress__indeterminate';
-		progressBar.style.width = "100%";
-		componentHandler.upgradeElement(progressBar);
-		$('#resultCell').prepend(progressBar);
+		var progressBar = '\
+		<div class="progress progress-striped active" id="progressBar">\
+			<div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">\
+			</div>\
+		</div>\
+		';
+		$('#results').html(progressBar);
 
-		// Get the list of workers
-		$.getJSON("get/workers.php",
+		// Get the list of employees
+		$.getJSON("get/employees.php",
 			{
 				skill: skill.toLowerCase()
 			},
-			function (workers) {
-				if (workers.length === 0) {
+			function (employees) {
+				if (employees.length === 0) {
 					$('#progressBar').remove();
-					$("#resultCell").html('<p style="text-align: center;">No workers found with the selected skill.</p>');
+					$("#results").html('<p style="text-align: center;">No employees found with the selected skill.</p>');
 					return;
 				}
 				
-				workers.sort(sortByRating);
-				var listOfWorkers = '<ul id="resultList" class="mdl-list" style="width: 100%">';
-				$.each(workers, function (index, worker) {
-					listOfWorkers += workerToListItem(worker);
+				employees.sort(sortByRating);
+				var listOfemployees = '<ul class="list-group" id="resultList" style="margin-top: 1%;">';
+				$.each(employees, function (index, employee) {
+					listOfemployees += employeeToListItem(employee);
 				});
-				listOfWorkers += '</ul>';
+				listOfemployees += '</ul>';
 				$('#progressBar').remove();
-				$('#resultCell').html(listOfWorkers);
+				$('#results').html(listOfemployees);
 				filterByCity();
 		}).fail(function () { // If the connection fails
 			$('#progressBar').remove();
-			$(errorDialog).find('.errorMsg').html('Something went wrong while connecting to the server. Please try again.');
-			errorDialog.showModal();
+			$('#errorMsg').html('Something went wrong while connecting to the server. Please try again.');
+			$('#errorModal').modal('show');
 		});
 	}
 
 });
 
-// Converts the worker's data to a <li> with appropriate classes
-function workerToListItem(worker) {
-	var newWorker =
-	'<li class="mdl-list__item mdl-list__item--three-line">\
-		<span class="mdl-list__item-primary-content">\
-			<i class="material-icons mdl-list__item-avatar">person</i>\
-			<span>' + worker.fullName + '</span>\
-			<span class="mdl-list__item-text-body" data-city="' + worker.city + '">\
-			Skills: '+ worker.skills +
-			'<br/>City: ' + worker.city +
-			'</span>\
-		</span>\
-		<span class="mdl-list__item-secondary-content">'
-			+ worker.rating + '/5\
-			<i class="material-icons">star</i>\
-		</span>\
+// Converts the employee's data to a <li> with appropriate classes
+function employeeToListItem(employee) {
+	var newemployee =
+	'<li class="list-group-item" data-city="' + employee.city + '">\
+		<div class="col-xs-12 col-sm-2">\
+			<img src="//style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="no photo available" class="img-responsive img-circle" />\
+		</div>\
+		<div class="col-xs-12 col-sm-10">\
+			<span class="glyphicon glyphicon-star pull-right pulse" title="rating">' + employee.rating + '/5</span>\
+			<span class="name">' + employee.name + '</span><br>\
+			Experience: <span class="text-muted">' + employee.experience + '</span><br>\
+			City: <span class="text-muted">' + employee.city + '</span><br>\
+			Gender: <span class="text-muted">' + employee.gender + '</span><br>\
+		</div>\
+		<div class="clearfix"></div>\
 	</li>';
-	return newWorker;
+	return newemployee;
 }
 
 function sortByRating(w1, w2) {
@@ -128,10 +131,10 @@ function filterByCity() {
 	var city = $('#cityInput').val();
 
 	$("#resultList").find('li').each(function (index, option) {
-		if ($(option).find('.mdl-list__item-text-body').data('city').toUpperCase() === city.toUpperCase()) {
-			$(option).show();
+		if ($(this).data('city').toUpperCase() === city.toUpperCase()) {
+			$(this).show();
 		} else {
-			$(option).hide();
+			$(this).hide();
 		}
 	});
 }

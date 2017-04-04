@@ -24,7 +24,7 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">                                             		
+                    <div class="row">                                             		
 						<div id="main">  
 							<h2><a href="#menu-toggle" style="cursor:pointer" id="menu-toggle">&#9776; Dashboard</a></h2>
 							
@@ -59,7 +59,13 @@
 											
 										?>
 										<tr>
-											<td>Image</td>
+											<td><a href="#<?php  echo $id;?>" data-toggle="modal">
+													<?php if($row['image'] != ""): ?>
+														<img src="upload/<?php echo $row['image']; ?>" width="80px" height="80px" style="border:1px solid #333333;">
+													<?php else: ?>
+														<img src="upload/default.png" width="80px" height="80px" style="border:1px solid #333333;">
+													<?php endif; ?>
+											</a></td>
 											<td><?php echo $row ['name']; ?></td>
 											<td><?php echo $row ['city']; ?></td>
 											<td><?php echo $row ['contactNo']; ?></td>
@@ -71,7 +77,7 @@
 											
 												$query= mysql_query("SELECT uid,GROUP_CONCAT(skill) as skill, GROUP_CONCAT(experience) as experience, GROUP_CONCAT(rating) as rating FROM skill WHERE uid= '$id' GROUP BY uid" ) or die (mysql_error());
 												while ($row= mysql_fetch_array ($query) ){
-													$id=$row['uid'];		
+													$id1=$row['uid'];		
 											
 											?>
 											<td><?php echo $row ['skill']; ?></td>
@@ -98,7 +104,7 @@
 														</div>
 														<div class="modal-footer">
 															<button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">No</button>
-															<a href="delete.php<?php echo '?wallet_id='.$id; ?>" class="btn btn-danger">Yes</a>
+															<a href="delete.php<?php echo '?id='.$id; ?>" class="btn btn-danger">Yes</a>
 														</div>				
 													</div>
 												</div>

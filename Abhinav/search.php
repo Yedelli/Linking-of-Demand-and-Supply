@@ -1,5 +1,5 @@
 <?php
-include_once '../all_cities.php';
+include_once 'all_cities.php';
 ?>
 <!DOCTYPE html>
 <html>

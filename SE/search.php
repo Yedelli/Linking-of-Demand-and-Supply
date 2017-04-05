@@ -31,7 +31,7 @@ include_once 'all_cities.php';
 	<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
 	<!-- Theme CSS -->
-	<link href="./SE/css/header_footer.css" rel="stylesheet">
+	<link href="css/header_footer.css" rel="stylesheet">
 
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 </head>

@@ -25,7 +25,7 @@ if(isset($_POST['SUBMIT']) && $_POST['SUBMIT']=='Sign Up'){
 				$ins="INSERT INTO employer(name,email,password,contactNo,aadharNo) VALUES('$name','$email','$password_hash','$number','$aadhar')";
 				mysql_query($ins);
 				echo "<script>alert('Registration sucessful');
-				      window.location='form.php'</script>";
+				      window.location='search.php'</script>";
                                    }
                                    else {
                                    echo "<script>alert('Invalid Phone Number');

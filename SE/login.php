@@ -21,7 +21,7 @@
 
 					$_SESSION['name']=$id;
 					echo "<script>alert('Welcome  $name');
-                                        window.location='form.php'</script>";
+                                        window.location='search.php'</script>";
 
 
 			}
@@ -30,14 +30,14 @@
 
 				echo "<script>alert('Password is Incorrect');
 
-					window.location='index.php'
+					window.location='form.php'
 				</script>";
 			}
 		}
 		else
 		{
 			echo "<script>alert('You are not Registered');
-				window.location='index.php'
+				window.location='form.php'
 			</script>";
 		}
 

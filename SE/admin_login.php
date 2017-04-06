@@ -1,5 +1,5 @@
 <?php
-	include('db.php');
+	include('admin_db.php');
 
 		$name=$_POST['name'];
 		$pwd=$_POST['pwd'];

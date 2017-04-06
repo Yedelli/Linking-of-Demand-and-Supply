@@ -1,6 +1,6 @@
-<?php include('db.php'); ?>
-<?php include('header.php'); ?>
-<?php include('hs.php'); ?>
+<?php include('admin_db.php'); ?>
+<?php include('admin_header.php'); ?>
+<?php include('admin_hs.php'); ?>
 <?php
 $query = mysql_query("SELECT count(*) FROM employee" ) or die (mysql_error());
 $row = mysql_fetch_row($query);
@@ -17,13 +17,13 @@ $count_employer = $row1[0];
         <div id="sidebar-wrapper">
             <ul id="list" class="sidebar-nav">                               
                 <li>
-                    <a href="dashboard.php" class="active"><span class="glyphicon glyphicon-dashboard"></span> DASHBOARD</a>
+                    <a href="admin_dashboard.php" class="active"><span class="glyphicon glyphicon-dashboard"></span> DASHBOARD</a>
                 </li>
                 <li>
-                    <a href="employee.php"><span class="glyphicon glyphicon-user"></span> EMPLOYEE</a>
+                    <a href="admin_employee.php"><span class="glyphicon glyphicon-user"></span> EMPLOYEE</a>
                 </li>
                 <li>
-                    <a href="employer.php"><span class="glyphicon glyphicon-user"></span> EMPLOYER</a>
+                    <a href="admin_employer.php"><span class="glyphicon glyphicon-user"></span> EMPLOYER</a>
                 </li>                              
             </ul>
         </div>
@@ -56,7 +56,7 @@ $count_employer = $row1[0];
                                 </div>
                             </div>
                         </div>
-                        <a href="employee.php">
+                        <a href="admin_employee.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -78,7 +78,7 @@ $count_employer = $row1[0];
                                 </div>
                             </div>
                         </div>
-                        <a href="employer.php">
+                        <a href="admin_employer.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

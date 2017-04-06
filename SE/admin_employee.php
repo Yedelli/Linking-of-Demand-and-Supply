@@ -1,7 +1,7 @@
-<?php include('db.php'); ?>
-<?php include('header.php'); ?>
-<?php include('modal_add.php'); ?>
-<?php include('hs.php'); ?>
+<?php include('admin_db.php'); ?>
+<?php include('admin_header.php'); ?>
+<?php include('admin_modal_add.php'); ?>
+<?php include('admin_hs.php'); ?>
 <html lang="en">
 <body>
 	
@@ -9,13 +9,13 @@
         <div id="sidebar-wrapper">
             <ul id="list" class="sidebar-nav">                               
                 <li>
-                    <a href="dashboard.php"><span class="glyphicon glyphicon-dashboard"></span> DASHBOARD</a>
+                    <a href="admin_dashboard.php"><span class="glyphicon glyphicon-dashboard"></span> DASHBOARD</a>
                 </li>
                 <li>
-                    <a href="employee.php" class="active"><span class="glyphicon glyphicon-user"></span> EMPLOYEE</a>
+                    <a href="admin_employee.php" class="active"><span class="glyphicon glyphicon-user"></span> EMPLOYEE</a>
                 </li>
                 <li>
-                    <a href="employer.php"><span class="glyphicon glyphicon-user"></span> EMPLOYER</a>
+                    <a href="admin_employer.php"><span class="glyphicon glyphicon-user"></span> EMPLOYER</a>
                 </li>                              
             </ul>
         </div>
@@ -85,7 +85,7 @@
 											<td><?php echo $row1 ['rating']; ?></td>
 												<?php } ;?>
 											
-											<td><a href="form_edit.php<?php echo '?userid='.$id; ?>" data-toggle="modal" class="btn btn-info">Edit</a>
+											<td><a href="admin_form_edit.php<?php echo '?userid='.$id; ?>" data-toggle="modal" class="btn btn-info">Edit</a>
 												<a href="#delete<?php echo $id;?>" data-toggle="modal"  class="btn btn-danger" >Delete </a>			
 											</td>																					
 										</tr>

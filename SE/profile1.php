@@ -65,7 +65,11 @@
         <div class="container">
             <div class="row">
 				<div class="col-md-3">
-				
+					<?php if($row['image'] != ""): ?>
+						<img src="upload/<?php echo $row['image']; ?>"   style=" width:200px, border:1px solid #333333;">
+					<?php else: ?>
+						<img src="upload/default.png"   style="border:1px solid #333333;">
+					<?php endif; ?>
 				</div>
 				<div class="col-md-9">
 					<h3>Personal Details:-</h3>

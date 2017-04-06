@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include('admin_header.php'); ?>
     <!-- Modal -->
     <div class="modal fade" id="myModal"  role="dialog">
 		<div class="modal-dialog">
@@ -9,7 +9,7 @@
 					<h4 class="modal-title">Add</h4>
 				</div>
 				<div class="modal-body">
-					<form class="form-horizontal" name="reg" enctype="multipart/form-data" action="add.php" method="post">						
+					<form class="form-horizontal" name="reg" enctype="multipart/form-data" action="admin_add.php" method="post">						
 						<div class="form-group">
 							<label class="control-label col-sm-4" for="name">Full Name:</label>
 							<div class="col-sm-5">
@@ -80,3 +80,4 @@
 		</div>
 					</form>  
     </div>
+ 

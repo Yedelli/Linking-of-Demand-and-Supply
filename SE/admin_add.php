@@ -1,5 +1,5 @@
 <?php
-	include('db.php');
+	include('admin_db.php');
 		if (!isset($_POST['submit']))
 		{
 			echo "";

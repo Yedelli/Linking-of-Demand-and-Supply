@@ -1,6 +1,6 @@
 <?php 
-	include('header.php');
-	include('db.php');
+	include('admin_header.php');
+	include('admin_db.php');
 	$get_id=$_GET['userid'];
 	
 	$result= mysql_query("SELECT * FROM employee where userid = '$get_id' " ) or die (mysql_error());
@@ -11,7 +11,7 @@
 			<div class="container">				
 				<br>
 				<br>
-					<form class="form-horizontal" action="edit.php" method="post">
+					<form class="form-horizontal" action="admin_edit.php" method="post">
 					<legend> Edit </legend>
 						<div class="form-group">		
 							<label class="control-label col-sm-4" for="email">User Id:</label>
@@ -72,7 +72,7 @@
 						<div class="form-group">        
 							<div class="col-sm-offset-6 col-sm-4">
 								<button type="submit" name="submit" class="btn btn-primary">Update</button>
-								<a href="employee.php" class="btn btn-default">Back</a>
+								<a href="admin_employee.php" class="btn btn-default">Back</a>
 							</div>
 						</div>
 						

@@ -1,6 +1,6 @@
 					
 <?php
-	include('db.php');
+	include('admin_db.php');
 		if (!isset($_POST['submit']))
 		{
 			echo "";
@@ -43,7 +43,7 @@
 					image='$image' WHERE userid = '$userid'") or die(mysql_error());	
 						
 				}
-					header('location:employee.php');
+					header('location:admin_employee.php');
 			}
 		}
 ?>								

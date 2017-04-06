@@ -97,20 +97,28 @@ $(document).ready(function () {
 
 // Converts the employee's data to a <li> with appropriate classes
 function employeeToListItem(employee) {
+	var imgSrc = '';
+	if (employee.image === '') {
+		imgSrc = "//style.anu.edu.au/_anu/4/images/placeholders/person.png";
+	} else {
+		imgSrc = "./upload/" + employee.image;
+	}
 	var newemployee =
-	'<li class="list-group-item" data-city="' + employee.city + '">\
-		<div class="col-xs-12 col-sm-2">\
-			<img src="//style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="no photo available" class="img-responsive img-circle" />\
-		</div>\
-		<div class="col-xs-12 col-sm-10">\
-			<span class="glyphicon glyphicon-star pull-right pulse" title="rating">' + employee.rating + '/5</span>\
-			<span class="name">' + employee.name + '</span><br>\
-			Experience: <span class="text-muted">' + employee.experience + '</span><br>\
-			City: <span class="text-muted">' + employee.city + '</span><br>\
-			Gender: <span class="text-muted">' + employee.gender + '</span><br>\
-		</div>\
-		<div class="clearfix"></div>\
-	</li>';
+	'<a href="./profile.php?userid=' + employee.userid + '">\
+		<li class="list-group-item" data-city="' + employee.city + '">\
+			<div class="col-xs-12 col-sm-2">\
+				<img src="' + imgSrc + '" alt="no photo available" class="img-thumbnail" style="max-height: 100px; max-width: 100px;"/>\
+			</div>\
+			<div class="col-xs-12 col-sm-10">\
+				<span class="glyphicon glyphicon-star pull-right pulse" title="rating">' + employee.rating + '/5</span>\
+				<span class="name">' + employee.name + '</span><br>\
+				Experience: <span class="text-muted">' + employee.experience + ' years</span><br>\
+				City: <span class="text-muted">' + employee.city + '</span><br>\
+				Gender: <span class="text-muted">' + employee.gender + '</span><br>\
+			</div>\
+			<div class="clearfix"></div>\
+		</li>\
+	</a>';
 	return newemployee;
 }
 

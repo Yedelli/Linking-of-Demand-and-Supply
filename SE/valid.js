@@ -80,7 +80,7 @@ $(document).ready(function() {
          messages: {
 										name:{
 										  required: "Please enter your name",
-										  minlength:"Firstname should be atleast 3 character long"
+										  minlength:"Name should be at least 3 character long"
 									  },
 										
 									  age: {

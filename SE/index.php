@@ -24,13 +24,17 @@
 	<style>
 	
 	.col-md-6{
-	 border : 3px solid black;
+	 border: 3px solid black;
 	 height : 900px;
 	 
 	}
 	
+	#worker{
+		border-width: 3px 3px 3px 0px;
+	}
+	
     #About {
-		height : 900px;
+		height : 600px;
 	}
 	
 	</style>
@@ -75,14 +79,40 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h3>I NEED A WORKER</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <h1>I NEED A WORKER</h1>
+	  <p>
+      <h3>If you wish to search a worker follow the steps given below:<h3>
+<ol style="font-size:20px">
+<li>Sign up.</li>
+
+<li>Fill in all the required details.</li>
+
+<li>Search for the worker as per your requirement based on skills.</li>
+
+<li>Contact the worker on the information given in his/her profile. </li>
+</ol>
     </div>
-    <div class="col-md-6">
-      <h3>I AM A WORKER</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    <div class="col-md-6" id="worker">
+      <h1>I AM A WORKER</h1>
+      <p><h3>If you wish to register as a worker follow the the steps given below:<hr>
+<ol style="font-size:20px">
+<li>Contact us on the given information in the contact section.</li>
+
+<li>Give us all the required information.</li>
+
+<li>We will make a profile for you on our website.</li>
+
+<li>Based on your skills and experience employer will contact you on your given information. </li>
+    </ol> </p>
+    <h1>मैं एक कार्यकर्ता हूं<h1>	
+	<p><h3>यदि आप एक कार्यकर्ता के रूप में पंजीकरण करना चाहते हैं तो नीचे दिए गए चरणों का पालन करें:</h3>
+	<ol style="font-size:20px">
+<li>संपर्क अनुभाग में दी गई जानकारी पर हमसे संपर्क करें।</li>
+<li>हमें सभी आवश्यक जानकारी दें</li>
+<li>हम आपके लिए हमारी वेबसाइट पर एक प्रोफाइल बना देंगे।</li>
+<li>आपके कौशल और अनुभव के आधार पर नियोक्ता आपके द्वारा दी गई जानकारी पर संपर्क करेगा।</li>
+</ol>
+</p>
     </div>
 	  
   </div>  
@@ -90,12 +120,23 @@
 
 <div class="jumbotron text-center" id="About">
   <h1>About</h1>
-  <p>Resize this responsive page to see the effect!</p> 
+  <p>This website will help all type of labour force to seek employment.
+It will help the employers an efficient and easy method to find the required employee/labour without any cost in advertisement and looking for prospective person using an informal network and local knowledge.
+With use of our website the workforce which is not formally trained / certified will get linked to the person who needs their products / services. 
+Our website will also provide linking with training and customers gives an opportunity for value addition in terms of quality of services and customer satisfaction.
+<h1>सूचना</h1>
+</p>
+<p>यह वेबसाइट रोज़गार की तलाश के लिए सभी प्रकार की श्रम शक्ति को सहायता करेगी। यह नियोक्ताओं को विज्ञापन में किसी भी कीमत के बिना अपेक्षित कर्मचारी / श्रम को खोजने के लिए एक अनोखी और आसान तरीके से अनौपचारिक नेटवर्क और स्थानीय ज्ञान का उपयोग करने वाले संभावित व्यक्ति की तलाश में मदद करेगा। हमारी वेबसाइट के उपयोग के साथ कर्मचारियों को जो औपचारिक रूप से प्रशिक्षित / प्रमाणित नहीं किया गया है, उन लोगों से लिंक किया जाएगा जिनके उत्पादों / सेवाओं की जरूरत है हमारी वेबसाइट प्रशिक्षण और ग्राहकों के साथ जुड़ने के साथ-साथ सेवाओं की गुणवत्ता और ग्राहकों की संतुष्टि के मामले में मूल्य वृद्धि के लिए एक मौका देती है।</p>
 </div>
 
 <div class="jumbotron text-center" id="contact">
-  <h1>contact</h1>
-  <p>Resize this responsive page to see the effect!</p> 
+ <h1>contact</h1>
+  <p>Contact Us at/हमसे संपर्क करने के लिए:</p>
+   <br>
+   <p>E-mail:saurabh.tripathi@gmail.com</p>
+   <br>
+   <p>Phone:8181818181</p>
+   </ul>
 </div>
     </section>
 	

@@ -11,7 +11,7 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 	$skill = strtolower($_GET['skill']);
-	$sql = "SELECT name, city, experience, gender, rating FROM employee JOIN skill ON employee.userid=skill.uid WHERE skill.skill = '$skill'";
+	$sql = "SELECT userid, name, city, experience, gender, rating, image FROM employee JOIN skill ON employee.userid=skill.uid WHERE skill.skill = '$skill'";
 	$result = mysqli_query($conn, $sql);
 	mysqli_close($conn);
 	$employee = array();

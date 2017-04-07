@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
 
 	// Get all types of skills from the server and fill the datalist options.
 	$.getJSON("get/skill_list.php", function (list) {
@@ -19,6 +19,18 @@ $(document).ready(function () {
 		}
 	});
 
+	// If the user presses enter search for the skill.
+	$("#skillInput").keypress(function (key) {
+		if (key.which === 13) {
+			getEmployeesWithSkill($("#skillInput").val());
+		}
+	});
+
+	// If the user clicks the search button search for the skill.
+	$("#serachBtn").on('click', function () {
+		getEmployeesWithSkill($("#skillInput").val());
+	});
+
 	// If the user-entered city matches with one of the cities or the input is empty, filter the list of employees.
 	$("#cityInput").on('input', function () {
 		var val = this.value;
@@ -26,30 +38,6 @@ $(document).ready(function () {
 			return this.value.toUpperCase() === val.toUpperCase();        
 		}).length) {
 			filterByCity();
-		}
-	});
-
-	// If the user presses enter, take appropriate action.
-	$("#skillInput").keypress(function (key) {
-		if (key.which === 13) {
-			var val = this.value;
-			if(!$('#skills').find('option').filter(function () {
-				return this.value.toUpperCase() === val.toUpperCase();        
-			}).length) {
-				$('#errorMsg').html('Please select an item from the drop-down');
-				$('#errorModal').modal('show');
-			}
-		}
-	});
-
-	// If the user clicks the search button, take appropriate action.
-	$("#serachBtn").on('click', function () {
-		var val = $("#skillInput").val();
-		if(!$('#skills').find('option').filter(function () {
-			return this.value.toUpperCase() === val.toUpperCase();        
-		}).length) {
-			$('#errorMsg').html('Please select an item from the drop-down');
-			$('#errorModal').modal('show');
 		}
 	});
 
@@ -77,7 +65,7 @@ $(document).ready(function () {
 					return;
 				}
 				
-				employees.sort(sortByRating);
+				employees.sort(sortByExperience);
 				var listOfemployees = '<ul class="list-group" id="resultList" style="margin-top: 1%;">';
 				$.each(employees, function (index, employee) {
 					listOfemployees += employeeToListItem(employee);
@@ -107,10 +95,10 @@ function employeeToListItem(employee) {
 	'<a href="./profile.php?userid=' + employee.userid + '">\
 		<li class="list-group-item" data-city="' + employee.city + '">\
 			<div class="col-xs-12 col-sm-2">\
-				<img src="' + imgSrc + '" alt="no photo available" class="img-thumbnail" style="max-height: 100px; max-width: 100px;"/>\
+				<img src="' + imgSrc + '" alt="profile photo" class="img-thumbnail" style="max-height: 100px; max-width: 100px;"/>\
 			</div>\
 			<div class="col-xs-12 col-sm-10">\
-				<span class="glyphicon glyphicon-star pull-right pulse" title="rating">' + employee.rating + '/5</span>\
+				<span class="pull-right"><button class="btn">View details</button></span>\
 				<span class="name">' + employee.name + '</span><br>\
 				Experience: <span class="text-muted">' + employee.experience + ' years</span><br>\
 				City: <span class="text-muted">' + employee.city + '</span><br>\
@@ -122,10 +110,10 @@ function employeeToListItem(employee) {
 	return newemployee;
 }
 
-function sortByRating(w1, w2) {
-	var rating1 = Number(w1.rating);
-	var rating2 = Number(w2.rating);
-	return ((rating1 < rating2) ? 1 : ((rating2 < rating1) ? -1 : 0));
+function sortByExperience(e1, e2) {
+	var experience1 = Number(e1.experience);
+	var experience2 = Number(e2.experience);
+	return ((experience1 < experience2) ? 1 : ((experience2 < experience1) ? -1 : 0));
 }
 
 function filterByCity() {

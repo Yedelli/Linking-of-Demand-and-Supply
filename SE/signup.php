@@ -10,9 +10,9 @@ if(isset($_POST['SUBMIT']) && $_POST['SUBMIT']=='Sign Up'){
      $aadhar=$_POST['aadhar'];
      $number=$_POST['number'];
 
-     $chk_email="SELECT * FROM employer WHERE Email_Id='$email'";
-     $rce=mysql_query($chk_email) or mysql_error();
-     $row=mysql_num_rows($rce);
+     $chk_email="SELECT * FROM employer WHERE email='$email'";
+     $rce=mysqli_query($conn, $chk_email);
+     $row=mysqli_num_rows($rce);
 
 		if($row==0){
 
@@ -23,7 +23,7 @@ if(isset($_POST['SUBMIT']) && $_POST['SUBMIT']=='Sign Up'){
                                 if (preg_match('/^\d{10}$/', $number) ) {
                                 $password_hash=md5($pwd);
 				$ins="INSERT INTO employer(name,email,password,contactNo,aadharNo) VALUES('$name','$email','$password_hash','$number','$aadhar')";
-				mysql_query($ins);
+				mysqli_query($conn, $ins);
 				echo "<script>alert('Registration sucessful');
 				      window.location='search.php'</script>";
                                    }

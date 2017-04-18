@@ -49,10 +49,7 @@ include_once 'all_cities.php';
 			<div class="collapse navbar-collapse" id="collapse-menu">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a class="page-scroll" href="#">Home</a>
-					</li>
-					<li>
-						<a class="page-scroll" href="#">Edit Profile</a>
+						<a class="page-scroll" href="./index.php">Home</a>
 					</li>
 					<li>
 						<a class="page-scroll" href="#">Logout</a>

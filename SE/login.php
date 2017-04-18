@@ -8,11 +8,11 @@
 		$Password=md5($_POST['pwd']);
 
 		$sel="SELECT * FROM employer WHERE email='$id'";
-		$res=mysql_query($sel) or mysql_error();
+		$res=mysqli_query($conn, $sel) or mysql_error();
 
 
-		$fet=mysql_fetch_array($res);
-		$row=mysql_num_rows($res);
+		$fet=mysqli_fetch_array($res);
+		$row=mysqli_num_rows($res);
 	        $name = $fet['name'];
                 if($row>0)
 		{

@@ -42,7 +42,7 @@
             <div class="collapse navbar-collapse" id="collapse-menu">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#">Home</a>
+                        <a class="page-scroll" href="./index.php">Home</a>
                     </li>					
 					<li>
                         <a class="page-scroll" href="#">Logout</a>
@@ -55,7 +55,8 @@
     </nav>
 	<?php
 	$con=mysqli_connect("localhost","root","","linking") or die("couldn't to the  server");
-	$sql = "Select * from employee where userid = 1";
+	$userid = $_GET['userid'];
+	$sql = "Select * from employee where userid = $userid";
 	$result = $con->query($sql);
 	$row = $result-> fetch_assoc();
 	
@@ -66,9 +67,9 @@
             <div class="row">
 				<div class="col-md-3">
 					<?php if($row['image'] != ""): ?>
-						<img src="upload/<?php echo $row['image']; ?>"   style=" width:200px, border:1px solid #333333;">
+						<img src="upload/<?php echo $row['image']; ?>"   style="width:200px; border:1px solid #333333;">
 					<?php else: ?>
-						<img src="upload/default.png"   style="border:1px solid #333333;">
+						<img src="upload/default.png"   style="width:200px; border:1px solid #333333;">
 					<?php endif; ?>
 				</div>
 				<div class="col-md-9">

@@ -1,5 +1,11 @@
 <?php
 include_once 'all_cities.php';
+	include('connect.php');
+	session_start();
+	if(!isset($_SESSION['name']))
+	{
+		header('location:form.php');
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +58,7 @@ include_once 'all_cities.php';
 						<a class="page-scroll" href="./index.php">Home</a>
 					</li>
 					<li>
-						<a class="page-scroll" href="#">Logout</a>
+						<a class="page-scroll" href="./logout.php">Logout</a>
 					</li>
 				</ul>
 			</div><!-- /.navbar-collapse -->

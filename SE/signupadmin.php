@@ -24,6 +24,7 @@ if(isset($_POST['SUBMIT']) && $_POST['SUBMIT']=='Sign Up'){
                                 $password_hash=md5($pwd);
 				$ins="INSERT INTO admin(name,email,password) VALUES('$name','$email','$password_hash')";
 				mysql_query($ins);
+				$_SESSION['name']=$id;
 				echo "<script>alert('Registration sucessful');
 				      window.location='form.php'</script>";
                                    

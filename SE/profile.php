@@ -1,4 +1,11 @@
-
+<?php
+	include('connect.php');
+	session_start();
+	if(!isset($_SESSION['name']))
+	{
+		header('location:form.php');
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +52,7 @@
                         <a class="page-scroll" href="./index.php">Home</a>
                     </li>					
 					<li>
-                        <a class="page-scroll" href="#">Logout</a>
+                        <a class="page-scroll" href="./logout.php">Logout</a>
                     </li>                    					
                 </ul>
             </div>
@@ -66,10 +73,11 @@
         <div class="container">
             <div class="row">
 				<div class="col-md-3">
+				<br>
 					<?php if($row['image'] != ""): ?>
-						<img src="upload/<?php echo $row['image']; ?>"   style="width:200px; border:1px solid #333333;">
+						<img src="upload/<?php echo $row['image']; ?>"   style="width:200px; height: 300px; border:1px solid #333333;">
 					<?php else: ?>
-						<img src="upload/default.png"   style="width:200px; border:1px solid #333333;">
+						<img src="upload/default.png"   style="width:200px; height: 300px; border:1px solid #333333;">
 					<?php endif; ?>
 				</div>
 				<div class="col-md-9">
@@ -83,6 +91,7 @@
 					<p><b>Languages:</b> <?php echo $row['Languages'];?></p>
 					</div>				
 			</div>
+			<br>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="table-responsive">

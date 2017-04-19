@@ -1,6 +1,17 @@
+<br>
+<br>
+
 <?php include('admin_db.php'); ?>
 <?php include('admin_header.php'); ?>
 <?php include('admin_hs.php'); ?>
+<?php
+	//include('connect.php');
+	session_start();
+	if(!isset($_SESSION['name']))
+	{
+		header('location:index.php');
+	}
+?>
 <?php
 $query = mysql_query("SELECT count(*) FROM employee" ) or die (mysql_error());
 $row = mysql_fetch_row($query);

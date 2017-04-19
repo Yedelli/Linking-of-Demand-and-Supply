@@ -13,7 +13,7 @@
 			if($pwd==$fet['pwd'] )
 			{
 
-					$_SESSION['name']=$id;
+					$_SESSION['name']=$name;
 					echo "<script>window.location='index.php'</script>";
 					header('location:index.php');
 

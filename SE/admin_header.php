@@ -37,7 +37,7 @@
 	<!-- Dashboard Panel -->
 	<link href="css/panel.css" rel="stylesheet">
   
-</head>
+
 
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
@@ -47,5 +47,6 @@
     <script src="js/sidebar.js"></script>
 	
 	<script type="text/javascript" src="valid.js" ></script>
-	
-	
+
+</head>	
+</html>

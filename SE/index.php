@@ -1,3 +1,12 @@
+<?php
+	include('connect.php');
+	session_start();
+	$logout = false;
+	if(isset($_SESSION['name']))
+	{
+		$logout = true;
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,6 +65,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="collapse-menu">
                 <ul class="nav navbar-nav navbar-right">
+					<li>
+                        <a class="page-scroll" href="search.php">Search</a>
+                    </li>
                     <li>
                         <a id = "home" class="page-scroll" href="index.php">Home</a>
                     </li>					
@@ -66,7 +78,7 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
 					<li>
-                        <a class="page-scroll" href="form.php">Login</a>
+                        <a class="page-scroll" href="<?php if($logout) echo "logout.php"; else echo "form.php"; ?>"><?php if($logout) echo "Logout"; else echo "Login"; ?></a>
                     </li>
                 </ul>
             </div>

@@ -1,6 +1,14 @@
 <?php include('admin_db.php'); ?>
 <?php include('admin_header.php'); ?>
 <?php include('admin_hs.php'); ?>
+<?php
+	include('connect.php');
+	session_start();
+	if(!isset($_SESSION['name']))
+	{
+		header('location:index.php');
+	}
+?>
 <html lang="en">
 <body>
 	

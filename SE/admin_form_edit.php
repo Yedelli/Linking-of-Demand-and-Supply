@@ -5,6 +5,12 @@
 	
 	$result= mysql_query("SELECT * FROM employee where userid = '$get_id' " ) or die (mysql_error());
 	$row= mysql_fetch_array ($result);
+	include('connect.php');
+	session_start();
+	if(!isset($_SESSION['name']))
+	{
+		header('location:index.php');
+	}
 ?>
 	<html>
 		<body>

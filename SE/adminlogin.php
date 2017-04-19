@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Employee login</title>
+    <title>Linking</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
 				<div class="tab-content">
 					<div id="Signup" class="tab-pane fade in active">
 						<div class="innter-form">
-							<form class="form-horizontal" name="reg" action="signupadmin.php" method="post" enctype="multipart/form-data">
+							<form class="form-horizontal" name="reg" action="admin_signup.php" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<div class="col-md-12">
 										<input type="text" class="form-control" id="fullname" name="name" placeholder="Full Name" required/>
@@ -73,11 +73,7 @@
 										
 									</div>
 								</div>
-                                                                <div class="form-group">
-									<div class="col-md-12">
-										
-									</div>
-								</div>
+                                      
 								<div class="form-group">
 									<div class="col-md-12">
 										<input type="submit" name="SUBMIT" class ="btn btn-lg btn-primary btn-block" value="Sign Up" class="button"/>
@@ -90,10 +86,10 @@
 					</div>
 					<div id="Login" class="tab-pane fade">
 						<div class="innter-form">
-							<form class="form-horizontal" method="post" action="loginadmin.php">
+							<form class="form-horizontal" method="post" action="admin_login.php">
 								<div class="form-group">
 									<div class="col-md-12">
-										<input type="email" class="form-control" id="email" name="email_id" placeholder="Email Id" required/>
+										<input type="email" class="form-control" id="email" name="email" placeholder="Email Id" required/>
 									</div>
 								</div>
 								<div class="form-group">

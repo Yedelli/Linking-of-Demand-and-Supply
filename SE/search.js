@@ -107,7 +107,7 @@ function employeeToListItem(employee) {
 	'<a href="./profile.php?userid=' + employee.userid + '">\
 		<li class="list-group-item" data-city="' + employee.city + '">\
 			<div class="col-xs-12 col-sm-2">\
-				<img src="' + imgSrc + '" alt="no photo available" class="img-thumbnail" style="max-height: 100px; max-width: 100px;"/>\
+				<img src="' + imgSrc + '" alt="no photo available" class="img-thumbnail" style="height: 100px; width: 100px;"/>\
 			</div>\
 			<div class="col-xs-12 col-sm-10">\
 				<span class="glyphicon glyphicon-star pull-right pulse" title="rating">' + employee.rating + '/5</span>\

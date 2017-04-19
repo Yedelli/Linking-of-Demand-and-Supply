@@ -1,32 +1,43 @@
 <script>
 
 	$(document).ready(function() {
-    var max_fields      = 11; //maximum input boxes allowed
+    var max_fields      = 9; //maximum input boxes allowed
     var wrapper         = $(".input_fields_wrap"); //Fields wrapper
     var add_button      = $(".add_field_button"); //Add button ID
     //alert("fdf");
-    var x = 2; //initlal text box count
+    var x = 0; //initlal text box count
     $(add_button).click(function(e){ //on add input button click
         e.preventDefault();
-		alert("fdf");
+		
         if(x < max_fields){ //max input box allowed           			
-            $(wrapper).append('<div class="col-sm-4"></div><div class="col-sm-5"><br><input class="form-control" placeholder="Skills" type="text" name="Skill"+x><input class="form-control"  placeholder="Experience" type="text" name="Exp><a href="#" class="remove_field">Remove</a></div>'); //add input box
+            $(wrapper).append('<div class="col-sm-4"></div><div class="col-sm-5"><br><input class="form-control" placeholder="Skills" type="text" name="Skill[]"><input class="form-control"  placeholder="Experience" type="text" name="Experience[]"><a href="#" class="remove_field">Remove</a></div>'); //add input box
 			x++; //text box increment
 			//alert(x);
 			
 			
+			
+
 		}
     });
 	
-	
-	
-    funtion value1(x){
-		return x;
-	}
     $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
         e.preventDefault(); $(this).parent('div').remove(); x--;
     })
+	
+	$('#submit').click(function(e){
+		$(wrapper).append('<input type="hidden" name="hidden" id ="x1" value="">');
+		$('#x1').attr('value',x);
+		
+		console.log(x);
+	});
+	
 });
+
+
+
+
+
+
 
 </script>
 
@@ -109,8 +120,8 @@
 								
 									<input type="button" class="add_field_button btn btn-primary" value="Add More">
 									
-									<input class="form-control" placeholder="Skill" type="text" name="Skill1">
-									<input class="form-control"  placeholder="Experience" type="text" name="Experience1">
+									<input class="form-control" placeholder="Skill" type="text" name="Skill[]">
+									<input class="form-control"  placeholder="Experience" type="text" name="Experience[]">
 							</div>
 						</div>
 						
@@ -127,7 +138,7 @@
 				</div>
 				<div class="modal-footer">
 					<button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Close</button>
-					<button type="submit" name="submit" class="btn btn-primary">Add</button>
+					<button type="submit" name="submit" id="submit"class="btn btn-primary">Add</button>
 				</div>
 			</div>
 		</div>

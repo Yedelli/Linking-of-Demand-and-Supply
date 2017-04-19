@@ -35,12 +35,34 @@
 					$Languages= $_POST['Languages'];
 					//$skill= $_POST['skill'];
 					//$experience= $_POST['experience'];
-
+					
 					mysql_query("insert into employee (name,city,contactNo,aadharNo,gender,age,Languages,image) 
 						values('$name','$city','$contactNo','$aadharNo','$gender','$age','$Languages','$image')")or die(mysql_error());	
-						
+					
+					$skills = $_POST['Skill'];
+					$exp = $_POST['Experience'];
+					$x = $_POST['hidden'];
+					echo $x."\n";
+					
+					$maxuid = "select max(userid) from employee;";
+					$res = mysql_query($maxuid);
+					$row = mysql_fetch_assoc($res);
+					$max =  $row['max(userid)'];
+					echo $max;
+					
+					for($i = 0; $i < $x; $i++)
+					{
+						$i1 = $_POST['Skill'][$i];
+						$i2 = $_POST['Experience'][$i];
+						echo $i1."  ".$i2;
+						$final = "Insert into skill (uid,skill,experience) values ($max,$i1,$i2);";
+						$res2 = mysql_query($final);						
+						if(!$res2)
+							echo "Not inserted";
+					}
+																
 				}
-					header('location:employee.php');
+					//header('location:admin_employee.php');
 			}
 		}
 ?>								

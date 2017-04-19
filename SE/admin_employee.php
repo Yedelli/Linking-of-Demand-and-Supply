@@ -102,7 +102,7 @@
 														</div>
 														<div class="modal-footer">
 															<button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">No</button>
-															<a href="delete.php<?php echo '?id='.$id; ?>" class="btn btn-danger">Yes</a>
+															<a href="admin_delete.php<?php echo '?id='.$id; ?>" class="btn btn-danger">Yes</a>
 														</div>				
 													</div>
 												</div>
